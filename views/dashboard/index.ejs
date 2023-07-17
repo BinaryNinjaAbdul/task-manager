@@ -1,0 +1,44 @@
+<div class="container-fluid container-fluid-custom pb-5 mb-5">
+  <div class="row mb-4">
+    <div class="col">
+      <h1>Hey, <%= userName %></h1>
+    </div>
+    <div class="col text-end">
+      <a href="/dashboard/add" class="btn btn-primary">+ New Task</a>
+    </div>
+  </div>
+
+  <div class="row">
+    <% if(tasks.length > 0) { %> <% tasks.forEach(task => { %>
+
+    <div class="col-sm-3 mb-4">
+        <div class="card border-primary" style="min-height: 210px">
+            <a href="/dashboard/item/<%= task._id %>" class="card-body text-decoration-none">
+                <h5 class="card-title"><%= task.title %></h5>
+                <p class="card-text"><%= task.body %></p>
+
+            </a>    
+        </div>
+    </div>
+
+    <% }) %> <% } else { %>
+
+        <div class="row">
+            <div class="col-3">
+                <img src="/img/human-3.svg" alt="Human pointing hand toward a create button">
+            </div>
+            <div class="col mt-md-4">
+                <h2>Okay...</h2>
+                <br>Let's start writting with your first task! </br></br>
+                    <a href="/dashboard/add">Create One!</a>
+                 </h4>
+            </div>
+        </div>
+
+    <% } %>
+
+  
+   
+
+  </div>
+</div>
